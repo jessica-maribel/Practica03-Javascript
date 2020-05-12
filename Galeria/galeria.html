@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <!--
+        Universidad Politecnica Salesiana
+        Carrera de Computacion
+        Autor:  Jessica Maribel Guncay Carchipulla
+        Date: 07 abril de 2020
+
+    
+        Filename: galeria.html
+        -->
+        <meta charset="uft-8">
+        <title>Galeria Turismo</title>
+        <link rel="stylesheet" type="text/css" href="estilo.css" media="all" /> 
+        <script type="text/javascript" src="script.js"></script>
+    </head>
+<body >
+<h1>Galeria Lugares Turisticos </h1>
+<div id ="separador"></div>
+<div id="visor">
+   <!-- colocaremos aqu&iacute; la foto nueva mediante javascript -->
+   <div id="fotoEntra">
+   </div>
+	 <!-- Esta es la foto saliente al pulsar alg&uacute;n bot&oacute;n -->
+   <div id="fotoSale">
+      <img src="imagenes/img1.jpg"  width="600" />
+   </div>
+</div>
+<!-- Elemento del pie de foto, aparte del texto colocamos aqu&iacute; los botones que 
+     permitir&aacute;n cambiar de imagen. -->
+<div id="piefoto">
+    <button id="controlesre" onclick="mueve('retro')" > Anterior</button>
+    <button id="controlesin" onclick="randomico()">Iniciar</button>
+    <button id="controlesav" onclick="mueve('avance')" > Siguiente</button>
+ 
+</div>
+</body>
+</html>
