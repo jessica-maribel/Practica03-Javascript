@@ -5,6 +5,9 @@ window.onload = function() {
     pantalla=document.getElementById("visor"); 
     foto=document.getElementById("fotoSale"); 
     fotoAnt=document.getElementById("fotoEntra"); 
+    document.getElementById("controlesre").disabled=true;
+    document.getElementById("controlesav").disabled=true;
+    document.getElementById("controlesin").disabled=false;
 }
 var aux=0;
 function randomico(){
