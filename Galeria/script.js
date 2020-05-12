@@ -5,7 +5,6 @@ window.onload = function() {
     pantalla=document.getElementById("visor"); 
     foto=document.getElementById("fotoSale"); 
     fotoAnt=document.getElementById("fotoEntra"); 
-    nueva=document.getElementById("sss");
 }
 var aux=0;
 function randomico(){
@@ -41,6 +40,9 @@ function randomico(){
     console.log('vectorww: '+ misFotos[aleatorio])
     foto.innerHTML=misFotos[1];
     muestra=1;
+    document.getElementById("controlesre").disabled=false;
+    document.getElementById("controlesav").disabled=false;
+    document.getElementById("controlesin").disabled=true;
   }
 
   function mueve(opcion) {
@@ -49,15 +51,19 @@ function randomico(){
     switch (opcion) { 
         case "avance": 
            muestra++;
-           if (muestra>5) {
-              muestra=0; 
+           if (muestra>=5) {
+              muestra=5; 
+              document.getElementById("controlesav").disabled=true;
+               document.getElementById("controlesin").disabled=false;
            } 
            estilo="derecho"; 
         break;
         case "retro":
         muestra--;
-        if (muestra<0) { 
-           muestra=5; 
+        if (muestra<2) { 
+         muestra=1;
+         document.getElementById("controlesre").disabled=true;
+         document.getElementById("controlesin").disabled=false;
         } 
         estilo="izquierdo" 
         break;
