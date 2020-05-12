@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--
+            Universidad Politecnica Salesiana
+            Carrera de Computacion
+            Autor:  Jessica Maribel Guncay Carchipulla
+            Date: 0 mayo de 2020
+
+            Filename: calculadora.html
+        -->
+        <meta charset="uft-8">
+        <script src="test.js" type= "text/javascript"></script>
+        <title>Calculadora Basica con Javascript</title>
+        <link type="text/css" href="estilo.css" rel="stylesheet">
+        <script src="funciones.js"></script>
+    </head>
+
+    <body >
+        
+        <h1>Calculadora </h1>
+        
+        <table class="calculadora">
+            <tr>
+                <td colspan="5"><textarea id="resultado"> </textarea></td>
+            </tr>
+            <tr>
+                <td><button onclick="agregar('7')">7</button></td>
+                <td><button onclick="agregar('8')">8</button></td>
+                <td><button onclick="agregar('9')">9</button></td>
+                <td><button onclick="agregar('/')">/</button></td>
+                <td><button onclick="del()">C</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="agregar('4')">4</button></td>
+                <td><button onclick="agregar('5')">5</button></td>
+                <td><button onclick="agregar('6')">6</button></td>
+                <td><button onclick="agregar('*')">*</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="agregar('1')">1</button></td>
+                <td><button onclick="agregar('2')">2</button></td>
+                <td><button onclick="agregar('3')">3</button></td>
+                <td><button onclick="agregar('+')">+</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="agregar('0')">0</button></td>
+                <td><button onclick="agregar('.')">.</button></td>
+                <td><button onclick="calc()">=</button></td>
+                <td><button onclick="agregar('-')">-</button></td>
+            </tr>
+        </table>
+    
+    </body>
+</html>
