@@ -42,3 +42,64 @@ function randomico(){
     foto.innerHTML=misFotos[1];
     muestra=1;
   }
+
+  function mueve(opcion) {
+    anterior=misFotos[muestra]; 
+    fotoAnt.innerHTML=anterior;
+    switch (opcion) { 
+        case "avance": 
+           muestra++;
+           if (muestra>5) {
+              muestra=0; 
+           } 
+           estilo="derecho"; 
+        break;
+        case "retro":
+        muestra--;
+        if (muestra<0) { 
+           muestra=5; 
+        } 
+        estilo="izquierdo" 
+        break;
+     }
+     ver=misFotos[muestra]; 
+     mueveFoto = 600; 
+     mueveFoto2=-600; 
+     completado=setInterval(transicion,40); 
+     }
+
+function transicion() { 
+     if (estilo=="derecho") {	
+        mueveFoto-=10; 
+        mueveAnt=mueveFoto-600; 
+        cambioFoto=mueveFoto+"px"; //a&ntilde;adimos "px" para poder usar estilo CSS
+        cambioAnt=mueveAnt+"px";
+        foto.style.left=cambioFoto; //Cambio de posici&oacute;n mediante estilo CSS
+        fotoAnt.style.left=cambioAnt;
+        foto.innerHTML=ver; //Visionamos la imagen nueva.
+        if (mueveFoto<=0) { //al completar la transici&oacute;n debemos parar el movimiento
+           parar() //funci&oacute;n que para el movimiento.
+           }
+        }
+     //Transici&oacute;n de izquierda a derecha. El proceso es similar al anterior
+     else if (estilo=="izquierdo") {  		
+        mueveFoto2+=10; //las fotos se mueven hacia la derecha 
+        mueveAnt=mueveFoto2+600;
+        cambioFoto=mueveFoto2+"px";
+        cambioAnt=mueveAnt+"px";
+        foto.style.left=cambioFoto;
+        fotoAnt.style.left=cambioAnt;
+        foto.innerHTML=ver;
+        if (mueveFoto2>=0) {
+           parar()
+           }
+        }
+     }
+function parar() { //parar el movimiento al finalizar la transici&oacute;n. 
+    clearInterval(completado); //paramos el movimiento de im&aacute;genes
+    numFoto=+muestra; //esta l&iacute;nea y las dos siguientes cambian el pie de foto.
+    numff=muestra+1; //colocamos la nueva foto como fondo del visor.
+    fotoFondo="img"+numff+".jpg";
+    imagenFondo="url(imagenes/"+fotoFondo+")";
+    pantalla.style.backgroundImage=imagenFondo
+}
