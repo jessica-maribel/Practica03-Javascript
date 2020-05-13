@@ -297,3 +297,36 @@ var validarFecha = function() {
         document.getElementById('mensajeFecha').innerHTML = '';
     }
 }
+/*
+    Validar Correo 
+ */
+var validarEmail=function (){
+    var nombre = String(document.getElementsByName("correo")[0].value);
+    var cadena = nombre.split("@");
+    if((cadena[0] != " ") && cadena[1] != null ){
+        
+        var parte1 = cadena[0].split("");
+        console.log(parte1.length);
+        //Realizar con el domimio ups.edu.ec est.ups.edu.ec
+        if(parte1.length >= 3){
+            var parte2 = cadena[1];
+            var dominio1 = "ups.edu.ec";
+            var dominio2 = "est.ups.edu.ec";
+            if((parte2 === dominio2)||(parte2 === dominio1)){
+            }else{
+                if(parte2.length > 9){
+                    document.getElementsByName("correo")[0].style.border = '3px red solid';
+                    document.getElementById('mensajeCorreo').innerHTML = '<br>Se nececita un dominio ups.edu.ec o est.ups.edu.ec';
+                    document.getElementById('mensajeCorreo').style.color = 'red';
+                }else{
+                    document.getElementsByName("correo")[0].style.border =  '1px solid black';
+                    document.getElementById('mensajeCorreo').innerHTML = '';
+                }
+            }
+        }else{
+            document.getElementsByName("correo")[0].style.border = '3px red solid';
+            document.getElementById('mensajeCorreo').innerHTML = '<br>Formato no compatible. Se nececita minimo 3 caracteres antes del @';
+            document.getElementById('mensajeCorreo').style.color = 'red';
+        }
+    }
+}
