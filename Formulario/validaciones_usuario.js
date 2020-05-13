@@ -11,36 +11,50 @@ var frmpassword = false;
 var validarCampos = function(){
     if (String (document.getElementsByName("cedula")[0].value) != ""){
         frmcedula = true;
-    }else 
-
+    }else{
+           
+    }
     if (String(document.getElementsByName("nombre")[0].value) != ""){
         frmnombre = true;
+    }else{
+           
     }
     if (String(document.getElementsByName("apellido")[0].value) != ""){
         frmapellido = true;
+    }else{
+           
     }
     if (String(document.getElementsByName("telefono")[0].value) != ""){
         frmtelefono = true;
+    }else{
+           
     }
     if (String(document.getElementsByName("direccion")[0].value) != ""){
         frmdireccion = true;
+    }else{
+           
     }
     if (String(document.getElementsByName("fechaNacimiento")[0].value) != ""){
         frmfecha = true;
+    }else{
+           
     }
     if (String(document.getElementsByName("correo")[0].value) != ""){
         frmmail = true;
+    }else{
+           
     }
     if (String(document.getElementsByName("contrasena")[0].value) != ""){
         frmpassword = true;
+    }else{
+           
     }
-    if ((frmcedula === true) && (frmnombre == true) && (frmapellido === true) && (frmtelefono === true) && (frmmail === true) (frmpassword === true)){
-        alert('   Bienvenido =D ')
-    }else {
-        alert('¡ Por Favor ! Llenar todos los campos')
+    if((frmcedula === true) && (frmnombre === true) && (frmapellido ===true) && (frmtelefono === true) && (frmfecha === true) && (frmmail === true) && (frmpassword ===true)){
+        alert('Bienvenido');
+    }else{
+        alert('¡ Por Favor ! LLENA TODOS LOS CAMPOS');
     }
 }
-
 /*
         Valicadion de la Cedula
  */

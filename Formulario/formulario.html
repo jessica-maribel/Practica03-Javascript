@@ -11,7 +11,7 @@
             <h1>Formulario de Registro</h1>
         </header>
         
-        <form id="formulario01" method="POST" action="" onsubmit="return validarCamposObligatorios()">
+        <form id="formulario01" method="get" action="ejemploPost1.php">
            
             <label for="cedula">Cedula (*)</label>
             <br>
@@ -45,7 +45,7 @@
             <br>
             <label for="correo">Correo electrónico (*)</label>
             <br>
-            <input type="email" id="correo" name="correo" value="" placeholder="Ingrese su correo electrónico ..." onkeyup="validarCorreo()"/>
+            <input type="email" id="correo" name="correo" value="" placeholder="Ingrese su correo electrónico ..." onkeyup="validarEmail()"/>
             <span id="mensajeCorreo"></span>
             <br>
             <label for="correo">Contraseña (*)</label>
@@ -53,7 +53,7 @@
             <input type="password" id="contrasena" name="contrasena" value="" placeholder="Ingrese su contraseña ..."  onblur="validarPassword()"/>
             <span id="mensajePassword"></span>
             <br>
-            <input type="submit" id="crear" name="crear" value="Aceptar" onclick="validarCampos()"/>
+            <input type="submit"  value="Registrar" id="crear" name="crear" onclick="validarCampos()" />
             <input type="reset" id="cancelar" name="cancelar" value="Cancelar" />
         </form> 
     </body>
