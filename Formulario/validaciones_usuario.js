@@ -181,3 +181,56 @@ var validarNombre = function(){
         }
     } 
 }
+/*
+        Valicadion de Ingresar los Apellidos
+ */
+
+var validarApellido = function(){
+    var apellido = String(document.getElementsByName("apellido")[0].value);
+    var cadena = apellido.split(" ");
+    var tam = cadena.length;
+    var su1 = false;   
+    if(tam > 2){
+        document.getElementById('mensajeApellido').innerHTML = '<br>Solo se permiten dos Apellidos';
+        document.getElementById('mensajeApellido').style.color = 'red';
+        document.getElementsByName("apellido")[0].style.border = '3px red solid';
+    }else if (tam === 2) {
+        var ape1 = cadena[0].split("");
+        var ape2 = cadena[1].split("");
+        var validador = false;
+        for(var i=0; i<=ape1.length; i++){              
+            if(isNaN(ape1[i])===false){
+                validador = true;
+                document.getElementsByName("mensajeApellido")[0].style.border =  '1px solid black';
+                document.getElementById('mensajeApellido').innerHTML = ''
+            }
+        }
+        for(var i=0; i<=ape2.length; i++){
+            if(isNaN(ape2[i])===false){
+                validador = true;
+            }else{
+            }
+        }
+        if(validador===true){
+            document.getElementById('mensajeApellido').innerHTML = '<br>No se permiten numeros en los apellidos';
+            document.getElementById('mensajeApellido').style.color = 'red';
+            document.getElementsByName("apellido")[0].style.border = '3px red solid';
+        }
+    }else if(tam ===1){
+        var aux = apellido.split("");
+        var validador = false;
+        for(var i=0; i<=aux.length; i++){
+            if(isNaN(aux[i])===false){
+                validador = true;
+            }
+        }
+        if(validador===true){        
+            document.getElementById('mensajeApellido').innerHTML = '<br>No se permiten numeros en los Apellidos';
+            document.getElementById('mensajeApellido').style.color = 'red';
+            document.getElementsByName("apellido")[0].style.border = '3px red solid';
+        }else{
+            document.getElementsByName("apellido")[0].style.border =  '1px solid black';
+            document.getElementById('mensajeApellido').innerHTML = ''
+        }
+    } 
+}
