@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script type="text/javascript" src="validaciones_usuario.js"></script>
+        <link type="text/css" href="estilo.css" rel="stylesheet">
+        
+    </head>
+    <body>
+        <header>
+            <h1>Formulario de Registro</h1>
+        </header>
+        
+        <form id="formulario01" method="POST" action="" onsubmit="return validarCamposObligatorios()">
+           
+            <label for="cedula">Cedula (*)</label>
+            <br>
+            <input type="text" id="cedula" name="cedula" value="" placeholder="Ingrese el número de cedula ..." onkeyup="validarCedula()"/>
+            <span id="mensajeCedula" class="error"></span>
+            <br>
+            <label for="nombres">Nombres (*)</label>
+            <br>
+            <input type="text" id="nombre" name="nombre" value="" placeholder="Ingrese sus dos nombres ..." onkeyup="validarNombre()"/>
+            <span id="mensajeNombre"></span>
+            <br>
+            <label for="apellidos">Apelidos (*)</label>
+            <br>
+            <input type="text" id="apellidos" name="apellido" value="" placeholder="Ingrese sus dos apellidos ..." onkeyup="validarApellido()"/>
+            <span id="mensajeApellido"></span>
+            <br>
+            <label for="direccion">Dirección (*)</label>
+            <br>
+            <input type="text" id="direccion" name="direccion" value="" placeholder="Ingrese su dirección ..."  />
+            <span id="mensajeDireccion"></span>
+            <br>
+            <label for="telefono">Teléfono (*)</label>
+            <br>
+            <input type="text" id="telefono" name="telefono" value="" placeholder="Ingrese su número telefónico..." onkeyup="validarTelefono()"/>
+            <span id="mensajeTelefono"></span>
+            <br>
+            <label for="fecha">Fecha Nacimiento (*)</label>
+            <br>
+            <input type="text" id="fechaNacimiento" name="fechaNacimiento" value="" placeholder="Ingrese su fecha de nacimiento ..." onkeyup="validarFecha()" />
+            <span id="mensajeFecha"></span>
+            <br>
+            <label for="correo">Correo electrónico (*)</label>
+            <br>
+            <input type="email" id="correo" name="correo" value="" placeholder="Ingrese su correo electrónico ..." onkeyup="validarCorreo()"/>
+            <span id="mensajeCorreo"></span>
+            <br>
+            <label for="correo">Contraseña (*)</label>
+            <br>
+            <input type="password" id="contrasena" name="contrasena" value="" placeholder="Ingrese su contraseña ..."  onblur="validarPassword()"/>
+            <span id="mensajePassword"></span>
+            <br>
+            <input type="submit" id="crear" name="crear" value="Aceptar" onclick="validarCampos()"/>
+            <input type="reset" id="cancelar" name="cancelar" value="Cancelar" />
+        </form> 
+    </body>
+</html>
