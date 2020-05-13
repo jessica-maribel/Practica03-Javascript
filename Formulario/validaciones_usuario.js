@@ -234,3 +234,33 @@ var validarApellido = function(){
         }
     } 
 }
+/*
+    Validar Telefono 
+ */
+var validarTelefono = function(){
+    var telefono1 = String(document.getElementsByName("telefono")[0].value).split("");
+
+
+    if(isNaN(String(document.getElementsByName("telefono")[0].value))===true){
+        //alert('no se permiten numeros')
+        document.getElementById('mensajetTelefono').innerHTML = '<br>No se permiten letras';
+        document.getElementById('mensajeTelefono').style.color = 'red';
+        document.getElementsByName("telefono")[0].style.border = '3px red solid';
+    }else{
+        document.getElementsByName("telefono")[0].style.border =  '1px solid black';
+        document.getElementById('mensajeTelefono').innerHTML = '';
+    }
+
+    if(telefono1.length>10){
+        //alert("Solo se permite un maximo de 10 caracteres");
+        document.getElementsByName("telefono")[0].style.border = '3px red solid';
+        document.getElementById('mensajeTelefono').innerHTML = '<br> Solo 10 digitos';
+        document.getElementById('mensajeTelefono').style.color = 'red';
+        
+    }else{
+        document.getElementsByName("telefono")[0].style.border =  '1px solid black';
+        document.getElementById('mensajeTelefono').innerHTML = '';
+        
+    }
+    
+}
