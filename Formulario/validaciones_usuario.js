@@ -128,3 +128,56 @@ var validarCedula = function(){
         document.getElementsByName("cedula")[0].style.border = '3px solid red';
     }
  }
+ /*
+        Valicadion de Ingresar los Nombres
+ */
+
+var validarNombre = function(){
+    var nombre = String(document.getElementsByName("nombre")[0].value);
+    var cadena = nombre.split(" ");
+    var tam = cadena.length;
+    var su1 = false;   
+    if(tam > 2){
+        document.getElementById('mensajeNombre').innerHTML = '<br>Solo se permiten dos nombres';
+        document.getElementById('mensajeNombre').style.color = 'red';
+        document.getElementsByName("nombre")[0].style.border = '3px red solid';
+    }else if (tam === 2) {
+        var nom1 = cadena[0].split("");
+        var nom2 = cadena[1].split("");
+        var validador = false;
+        for(var i=0; i<=nom1.length; i++){              
+            if(isNaN(nom1[i])===false){
+                validador = true;
+                document.getElementsByName("nombre")[0].style.border =  '1px solid black';
+                document.getElementById('mensajeNombre').innerHTML = ''
+            }
+        }
+        for(var i=0; i<=nom2.length; i++){
+            if(isNaN(nom2[i])===false){
+                validador = true;
+            }else{
+            }
+        }
+        if(validador===true){
+            document.getElementById('mensajeNombre').innerHTML = '<br>No se permiten numeros en los nombres';
+            document.getElementById('mensajeNombre').style.color = 'red';
+            document.getElementsByName("nombre")[0].style.border = '3px red solid';
+        }
+    }else if(tam ===1){
+        var aux = nombre.split("");
+        var validador = false;
+        for(var i=0; i<=aux.length; i++){
+            if(isNaN(aux[i])===false){
+                validador = true;
+            }
+        }
+        if(validador===true){        
+            document.getElementById('mensajeNombre').innerHTML = '<br>No se permiten numeros en los nombres';
+            document.getElementById('mensajeNombre').style.color = 'red';
+            document.getElementsByName("nombre")[0].style.border = '3px red solid';
+        }else{
+            document.getElementsByName("nombre")[0].style.border =  '1px solid black';
+            document.getElementById('mensajeNombre').innerHTML = ''
+        }
+    } 
+}
