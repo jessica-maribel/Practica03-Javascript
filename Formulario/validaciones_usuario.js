@@ -330,3 +330,48 @@ var validarEmail=function (){
         }
     }
 }
+/*
+    Validar password 
+*/
+
+var validarPassword = function() {
+    var el = document.getElementsByName("contrasena")[0].value;
+    var elemento = el.split("");
+    if(elemento.length > 0) {
+        if(elemento.length >= 8) {		
+            var mayuscula = false;
+            var minuscula = false;
+            var numero = false;
+            var caracter_especial = false;
+            for(var i = 0;i<elemento.length;i++) {
+                if(el.charCodeAt(i) >= 65 && el.charCodeAt(i) <= 90) {
+                    mayuscula = true;
+                } else if(el.charCodeAt(i) >= 97 && el.charCodeAt(i) <= 122) {
+                    minuscula = true;
+                } else if(el.charCodeAt(i) >= 48 && el.charCodeAt(i) <= 57) {
+                    numero = true;
+                } else if(el.charCodeAt(i) == 64 || el.charCodeAt(i) == 95 || el.charCodeAt(i) == 36) {
+                    caracter_especial = true;
+                }  else {
+                    return true;
+                }
+            }
+            if(mayuscula === true && minuscula === true && caracter_especial === true && numero === true) {
+                document.getElementsByName("contrasena")[0].style.border =  '1px solid black';
+                document.getElementById('mensajePassword').innerHTML = '';
+            } else {
+                document.getElementsByName("contrasena")[0].style.border = '3px red solid';
+                document.getElementById('mensajePassword').innerHTML = '<br>La Contrasena debe tener: Numeros, Letras Mayusculas y minusculas y caracteres especiales';
+                document.getElementById('mensajePassword').style.color = 'red';
+            }
+        } else {
+            document.getElementsByName("contrasena")[0].style.border = '3px red solid';
+            document.getElementById('mensajePassword').innerHTML = '<br>contrasena demasiado Corta';
+            document.getElementById('mensajePassword').style.color = 'red';
+        }
+    } else {
+        document.getElementsByName("contrasena")[0].style.border = '3px red solid';
+        document.getElementById('mensajePassword').innerHTML = '<br>No existe Contrasena';
+        document.getElementById('mensajePassword').style.color = 'red';
+    }
+}
