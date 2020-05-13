@@ -87,7 +87,8 @@ var validarCedula = function(){
         var ditio_rgn = cedula.substring(0,2);
         if (ditio_rgn >= 1 && ditio_rgn <= 24){
             var udigito = cedula.substring(9,10);
-            var pares = parseInt(cedula.substring(1,2)) + parseInt(cedula.substring(3,4)) + parseInt(cedula.substring(5,6)) + parseInt(cedula.substring(7,8));
+            var pares = parseInt(cedula.substring(1,2)) + parseInt(cedula.substring(3,4)) + parseInt(cedula.substring(5,6)) + 
+            parseInt(cedula.substring(7,8));
             var num1 = cedula.substring(0,1);
             num1 = (num1 * 2);
             if (num1 > 9){
@@ -253,10 +254,7 @@ var validarApellido = function(){
  */
 var validarTelefono = function(){
     var telefono1 = String(document.getElementsByName("telefono")[0].value).split("");
-
-
     if(isNaN(String(document.getElementsByName("telefono")[0].value))===true){
-        //alert('no se permiten numeros')
         document.getElementById('mensajetTelefono').innerHTML = '<br>No se permiten letras';
         document.getElementById('mensajeTelefono').style.color = 'red';
         document.getElementsByName("telefono")[0].style.border = '3px red solid';
@@ -264,9 +262,7 @@ var validarTelefono = function(){
         document.getElementsByName("telefono")[0].style.border =  '1px solid black';
         document.getElementById('mensajeTelefono').innerHTML = '';
     }
-
     if(telefono1.length>10){
-        //alert("Solo se permite un maximo de 10 caracteres");
         document.getElementsByName("telefono")[0].style.border = '3px red solid';
         document.getElementById('mensajeTelefono').innerHTML = '<br> Solo 10 digitos';
         document.getElementById('mensajeTelefono').style.color = 'red';
@@ -274,7 +270,6 @@ var validarTelefono = function(){
     }else{
         document.getElementsByName("telefono")[0].style.border =  '1px solid black';
         document.getElementById('mensajeTelefono').innerHTML = '';
-        
     }
 }
 
@@ -287,11 +282,8 @@ var validarFecha = function() {
         var dia = elemento.value[0]+elemento.value[1];
         var mes = elemento.value[3]+elemento.value[4];
         var ano = elemento.value[6]+elemento.value[7]+elemento.value[8]+elemento.value[9];
-
         console.log(ano);
-
         if( ((dia < 1)||(dia > 31)) || (elemento.value[2] != "/") || ((mes < 1) || (mes > 12)) || (elemento.value[5] != "/") || ((ano < 0) || (ano > 2020) || (ano < 1900)) ) {
-            //alert('Formato Incorrecto');
             document.getElementsByName("fechaNacimiento")[0].style.border = '3px red solid';
             document.getElementById('mensajeFecha').innerHTML = '<br>Formato Incorrecto';
             document.getElementById('mensajeFecha').style.color = 'red';
@@ -299,9 +291,7 @@ var validarFecha = function() {
             document.getElementsByName("fechaNacimiento")[0].style.border =  '1px solid black';
             document.getElementById('mensajeFecha').innerHTML = '';
         }
-
     } else if(elemento.value.length > 10) {
-        //alert('Formato Incorrectoa');
         document.getElementsByName("fechaNacimiento")[0].style.border = '3px red solid';
         document.getElementById('mensajeFecha').innerHTML = '<br> Formato de fecha Incorrecto formta es dd/mm/yyyy';
         document.getElementById('mensajeFecha').style.color = 'red';
@@ -318,7 +308,6 @@ var validarEmail=function (){
     var nombre = String(document.getElementsByName("correo")[0].value);
     var cadena = nombre.split("@");
     if((cadena[0] != " ") && cadena[1] != null ){
-        
         var parte1 = cadena[0].split("");
         console.log(parte1.length);
         //Realizar con el domimio ups.edu.ec est.ups.edu.ec
@@ -347,7 +336,6 @@ var validarEmail=function (){
 /*
     Validar password 
 */
-
 var validarPassword = function() {
     var el = document.getElementsByName("contrasena")[0].value;
     var elemento = el.split("");
@@ -380,7 +368,7 @@ var validarPassword = function() {
             }
         } else {
             document.getElementsByName("contrasena")[0].style.border = '3px red solid';
-            document.getElementById('mensajePassword').innerHTML = '<br>contrasena demasiado Corta';
+            document.getElementById('mensajePassword').innerHTML = '<br>La Contrasena demasiado corta';
             document.getElementById('mensajePassword').style.color = 'red';
         }
     } else {
