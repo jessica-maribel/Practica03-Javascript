@@ -262,5 +262,38 @@ var validarTelefono = function(){
         document.getElementById('mensajeTelefono').innerHTML = '';
         
     }
-    
+}
+
+/*
+    Validar Fecha de Nacimiento
+*/
+var validarFecha = function() {
+    var elemento = document.getElementsByName("fechaNacimiento")[0];
+    if(elemento.value.length == 10) {
+        var dia = elemento.value[0]+elemento.value[1];
+        var mes = elemento.value[3]+elemento.value[4];
+        var ano = elemento.value[6]+elemento.value[7]+elemento.value[8]+elemento.value[9];
+
+        console.log(ano);
+
+        if( ((dia < 1)||(dia > 31)) || (elemento.value[2] != "/") || ((mes < 1) || (mes > 12)) || (elemento.value[5] != "/") || ((ano < 0) || (ano > 2020) || (ano < 1900)) ) {
+            //alert('Formato Incorrecto');
+            document.getElementsByName("fechaNacimiento")[0].style.border = '3px red solid';
+            document.getElementById('mensajeFecha').innerHTML = '<br>Formato Incorrecto';
+            document.getElementById('mensajeFecha').style.color = 'red';
+        }else{
+            document.getElementsByName("fechaNacimiento")[0].style.border =  '1px solid black';
+            document.getElementById('mensajeFecha').innerHTML = '';
+        }
+
+    } else if(elemento.value.length > 10) {
+        //alert('Formato Incorrectoa');
+        document.getElementsByName("fechaNacimiento")[0].style.border = '3px red solid';
+        document.getElementById('mensajeFecha').innerHTML = '<br> Formato de fecha Incorrecto formta es dd/mm/yyyy';
+        document.getElementById('mensajeFecha').style.color = 'red';
+
+    }else{
+        document.getElementsByName("fechaNacimiento")[0].style.border =  '1px solid black';
+        document.getElementById('mensajeFecha').innerHTML = '';
+    }
 }
